@@ -13,17 +13,36 @@ Input: arr = [1, 3, 5], k = 0
 Output: 0
 Explaination: No subarray with 0 sum.
 
- */
+
 
 class Solution {
     countSubarrays(arr, k) {
-        // code here
         let temp =[];
         for(let i=0 ;i <arr.length; i++){
             let currCounter =0;
             for(let j =i +1 ; j<arr.length ;j++){
                 currCounter = currCounter + arr[j];
                 if(arr[i]+ currCounter  == k){
+                    temp.push(arr.slice(i , j+1));
+                    break;
+                }
+            }
+        }
+        console.log(temp.length);
+    }
+}
+ */
+
+// --------------------------OPTIMIZE VERSION----------------------------
+
+class Solution {
+    countSubarrays(arr, k) {
+        let temp =[];
+        for(let i=0 ;i <arr.length; i++){
+            let currCounter =0;
+            for(let j =i ; j<arr.length ;j++){
+                currCounter = currCounter + arr[j];
+                if(currCounter  == k){
                     temp.push(arr.slice(i , j+1));
                     break;
                 }
