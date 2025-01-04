@@ -21,11 +21,10 @@ Explanation: Here 2 is the minimum element.
  * @returns {number}
  */
 class Solution {
-    // Function to find the minimum element in a sorted and rotated array.
     findMin(arr) {
-        // your code here
         return Math.min(...arr)
     }
 }
 
 console.log( new Solution().findMin([1,2,3,4,5,8]))
+
